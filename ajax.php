@@ -99,7 +99,9 @@ if (isset($_POST['edit_room'])) {
 
 if (isset($_GET['delete_room'])) {
     $room_id = $_GET['delete_room'];
-    $sql = "UPDATE room set deleteStatus = '1' WHERE room_id = '$room_id' AND status IS NULL";
+   // $sql = "UPDATE room set deleteStatus = '1' WHERE room_id = '$room_id' AND status IS NULL";
+    $sql="DELETE FROM room WHERE room_id = '$room_id'";
+
     $result = mysqli_query($connection, $sql);
     if ($result) {
         header("Location:index.php?room_mang&success");
